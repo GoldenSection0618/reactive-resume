@@ -11,6 +11,7 @@ import pdfParserSystemPrompt from "@/integrations/ai/prompts/pdf-parser-system.m
 import pdfParserUserPrompt from "@/integrations/ai/prompts/pdf-parser-user.md?raw";
 import { defaultResumeData, resumeDataSchema } from "@/schema/resume/data";
 import { protectedProcedure } from "../context";
+import { resumeService } from "../services/resume";
 
 const aiProviderSchema = z.enum(["vercel-ai-gateway", "openai", "anthropic", "gemini", "ollama"]);
 
@@ -42,6 +43,11 @@ const aiCredentialsSchema = z.object({
 	baseURL: z.string().optional(),
 });
 
+const chatOutputSchema = z.object({
+	reply: z.string(),
+	summary: z.string().optional(),
+});
+
 const fileInputSchema = z.object({
 	name: z.string(),
 	data: z.string(), // base64 encoded
@@ -65,6 +71,50 @@ export const aiRouter = {
 			});
 
 			yield* stream.textStream;
+		}),
+
+	chat: protectedProcedure
+		.input(
+			z.object({
+				aiStoreData: aiCredentialsSchema,
+				resumeId: z.string(),
+				message: z.string().min(1),
+			}),
+		)
+		.handler(async ({ input, context }) => {
+			const resume = await resumeService.getById({ id: input.resumeId, userId: context.user.id });
+
+			let reply = "I’ll summarize the updates I can make to your resume.";
+			let summary = resume.data.summary.content ?? "";
+
+			try {
+				const result = await generateText({
+					model: getModel(input.aiStoreData),
+					maxRetries: 0,
+					output: Output.object({ schema: chatOutputSchema }),
+					messages: [
+						{
+							role: "system",
+							content:
+								"You are helping a user improve their resume. Respond with a short friendly reply and an improved professional summary based on the user request. Keep the summary concise and in the same language as the provided summary.",
+						},
+						{
+							role: "user",
+							content: `Current summary: ${summary || "Not provided"}\nRequest: ${input.message}`,
+						},
+					],
+				});
+
+				reply = result.output.reply;
+				summary = result.output.summary ?? summary;
+			} catch (error) {
+				console.error(error);
+			}
+
+			return {
+				reply,
+				changes: summary && summary !== resume.data.summary.content ? { summary: { content: summary } } : undefined,
+			};
 		}),
 
 	parsePdf: protectedProcedure

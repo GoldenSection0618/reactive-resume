@@ -7,6 +7,7 @@ import {
 	LockSimpleIcon,
 	LockSimpleOpenIcon,
 	PencilSimpleLineIcon,
+	SparkleIcon,
 	SidebarSimpleIcon,
 	TrashSimpleIcon,
 } from "@phosphor-icons/react";
@@ -24,13 +25,17 @@ import {
 import { useResumeStore } from "@/components/resume/store/resume";
 import { useDialogStore } from "@/dialogs/store";
 import { useConfirm } from "@/hooks/use-confirm";
+import { useAIStore } from "@/integrations/ai/store";
 import { orpc } from "@/integrations/orpc/client";
 import { useBuilderSidebar } from "../-store/sidebar";
+import { useAIChatStore } from "../-store/ai-chat";
 
 export function BuilderHeader() {
 	const name = useResumeStore((state) => state.resume.name);
 	const isLocked = useResumeStore((state) => state.resume.isLocked);
 	const toggleSidebar = useBuilderSidebar((state) => state.toggleSidebar);
+	const aiEnabled = useAIStore((state) => state.enabled);
+	const openAIChat = useAIChatStore((state) => state.open);
 
 	return (
 		<div className="absolute inset-x-0 top-0 z-10 flex h-14 items-center justify-between border-b bg-popover px-1.5">
@@ -47,6 +52,12 @@ export function BuilderHeader() {
 				<span className="mr-2.5 text-muted-foreground">/</span>
 				<h2 className="flex-1 truncate font-medium">{name}</h2>
 				{isLocked && <LockSimpleIcon className="ml-2 text-muted-foreground" />}
+				{aiEnabled ? (
+					<Button variant="outline" size="sm" className="ml-2" onClick={() => openAIChat()}>
+						<SparkleIcon className="mr-2" />
+						<Trans>Build with AI</Trans>
+					</Button>
+				) : null}
 				<BuilderHeaderDropdown />
 			</div>
 

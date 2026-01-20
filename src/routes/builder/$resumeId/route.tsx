@@ -13,6 +13,7 @@ import { useResumeStore } from "@/components/resume/store/resume";
 import { ResizableGroup, ResizablePanel, ResizableSeparator } from "@/components/ui/resizable";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { orpc } from "@/integrations/orpc/client";
+import { AIChatPanel } from "./-components/ai-chat";
 import { BuilderHeader } from "./-components/header";
 import { BuilderSidebarLeft } from "./-sidebar/left";
 import { BuilderSidebarRight } from "./-sidebar/right";
@@ -125,6 +126,8 @@ function BuilderLayout({ initialLayout, ...props }: BuilderLayoutProps) {
 					<BuilderSidebarRight />
 				</ResizablePanel>
 			</ResizableGroup>
+
+			<AIChatPanel />
 		</div>
 	);
 }
