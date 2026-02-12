@@ -29,7 +29,14 @@ import {
 import type { ResumeData } from "@/schema/resume/data";
 import { defaultResumeData, resumeDataSchema } from "@/schema/resume/data";
 
-export const aiProviderSchema = z.enum(["ollama", "openai", "gemini", "anthropic", "vercel-ai-gateway"]);
+export const aiProviderSchema = z.enum([
+	"ollama",
+	"openai",
+	"openai-compatible",
+	"gemini",
+	"anthropic",
+	"vercel-ai-gateway",
+]);
 
 type AIProvider = z.infer<typeof aiProviderSchema>;
 
@@ -46,6 +53,9 @@ function getModel(input: GetModelInput) {
 
 	return match(provider)
 		.with("openai", () => createOpenAI({ apiKey, baseURL }).languageModel(model))
+		.with("openai-compatible", () => {
+			return createOpenAI({ apiKey, baseURL }).chat(model);
+		})
 		.with("ollama", () => createOllama({ apiKey, baseURL }).languageModel(model))
 		.with("anthropic", () => createAnthropic({ apiKey, baseURL }).languageModel(model))
 		.with("vercel-ai-gateway", () => createGateway({ apiKey, baseURL }).languageModel(model))
@@ -67,17 +77,19 @@ export const fileInputSchema = z.object({
 
 type TestConnectionInput = z.infer<typeof aiCredentialsSchema>;
 
-async function testConnection(input: TestConnectionInput): Promise<boolean> {
-	const RESPONSE_OK = "1";
+	async function testConnection(input: TestConnectionInput): Promise<boolean> {
+		// Avoid structured output / JSON schema features for maximum compatibility with
+		// OpenAI-compatible providers (e.g. DeepSeek). We only need a trivial roundtrip.
+		const RESPONSE_OK = "1";
 
-	const result = await generateText({
-		model: getModel(input),
-		output: Output.choice({ options: [RESPONSE_OK] }),
-		messages: [{ role: "user", content: `Respond with "${RESPONSE_OK}"` }],
-	});
+		const result = await generateText({
+			model: getModel(input),
+			messages: [{ role: "user", content: `Respond with exactly ${JSON.stringify(RESPONSE_OK)} and nothing else.` }],
+		});
 
-	return result.output === RESPONSE_OK;
-}
+		const text = result.text.trim();
+		return text === RESPONSE_OK || text === JSON.stringify(RESPONSE_OK) || text === `'${RESPONSE_OK}'`;
+	}
 
 type ParsePdfInput = z.infer<typeof aiCredentialsSchema> & {
 	file: z.infer<typeof fileInputSchema>;

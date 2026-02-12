@@ -31,6 +31,13 @@ const providerOptions: (ComboboxOption<AIProvider> & { defaultBaseURL: string })
 		defaultBaseURL: "https://api.openai.com/v1",
 	},
 	{
+		value: "openai-compatible",
+		label: "OpenAI-compatible",
+		keywords: ["openai", "compatible", "deepseek", "openrouter", "together", "groq"],
+		// Placeholder only (does not auto-fill). We require an explicit baseURL for this provider.
+		defaultBaseURL: "https://api.deepseek.com",
+	},
+	{
 		value: "ollama",
 		label: "Ollama",
 		keywords: ["ollama", "ai", "local"],
@@ -91,6 +98,11 @@ function AIForm() {
 	};
 
 	const handleTestConnection = () => {
+		if (provider === "openai-compatible" && !baseURL.trim()) {
+			toast.error(t`Base URL is required for OpenAI-compatible providers.`);
+			return;
+		}
+
 		testConnection(
 			{ provider, model, apiKey, baseURL },
 			{
@@ -166,31 +178,43 @@ function AIForm() {
 				/>
 			</div>
 
-			<div className="flex flex-col gap-y-2 sm:col-span-2">
-				<Label htmlFor="ai-base-url">
-					<Trans>Base URL (Optional)</Trans>
-				</Label>
-				<Input
-					id="ai-base-url"
-					name="ai-base-url"
-					type="url"
-					value={baseURL}
-					disabled={enabled}
-					placeholder={selectedOption?.defaultBaseURL}
-					onChange={(e) => handleBaseURLChange(e.target.value)}
-					autoCorrect="off"
-					autoComplete="off"
-					spellCheck="false"
-					autoCapitalize="off"
+				<div className="flex flex-col gap-y-2 sm:col-span-2">
+					<Label htmlFor="ai-base-url">
+						{provider === "openai-compatible" ? <Trans>Base URL</Trans> : <Trans>Base URL (Optional)</Trans>}
+					</Label>
+					<Input
+						id="ai-base-url"
+						name="ai-base-url"
+						type="url"
+						value={baseURL}
+						disabled={enabled}
+						placeholder={selectedOption?.defaultBaseURL}
+						onChange={(e) => handleBaseURLChange(e.target.value)}
+						autoCorrect="off"
+						autoComplete="off"
+						spellCheck="false"
+						autoCapitalize="off"
 				/>
-			</div>
+					{provider === "openai-compatible" && (
+						<p className="text-xs text-muted-foreground leading-relaxed">
+							<Trans>
+								Examples: https://api.deepseek.com (also works with /v1), https://openrouter.ai/api/v1. If you get a
+								"Not Found" error, try adding a /v1 suffix.
+							</Trans>
+						</p>
+					)}
+				</div>
 
-			<div>
-				<Button variant="outline" disabled={isTesting || enabled} onClick={handleTestConnection}>
-					{isTesting ? (
-						<Spinner />
-					) : testStatus === "success" ? (
-						<CheckCircleIcon className="text-success" />
+				<div>
+					<Button
+						variant="outline"
+						disabled={isTesting || enabled || (provider === "openai-compatible" && !baseURL.trim())}
+						onClick={handleTestConnection}
+					>
+						{isTesting ? (
+							<Spinner />
+						) : testStatus === "success" ? (
+							<CheckCircleIcon className="text-success" />
 					) : testStatus === "failure" ? (
 						<XCircleIcon className="text-destructive" />
 					) : null}
