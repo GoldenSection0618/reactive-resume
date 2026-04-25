@@ -8,7 +8,7 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-03-05 10:45\n"
+"PO-Revision-Date: 2026-04-04 11:19\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -45,12 +45,36 @@ msgstr "{0, plural, one {# Element} other {# Elemente}}"
 #. placeholder {0}: item.roles.length
 #: src/routes/builder/$resumeId/-sidebar/left/sections/experience.tsx
 msgid "{0, plural, one {# role} other {# roles}}"
-msgstr ""
+msgstr "{0, plural, one {# Rolle} other {# Rollen}}"
+
+#. placeholder {0}: quota.used
+#. placeholder {1}: quota.limit
+#: src/routes/dashboard/job-search/index.tsx
+msgid "{0} / {1} requests used"
+msgstr "{0} / {1} verwendete Anfragen"
+
+#. placeholder {0}: Math.floor(diffDays / 30)
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+msgid "{0} months ago"
+msgstr "{0} vor Monaten"
+
+#. placeholder {0}: Math.floor(diffDays / 7)
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+msgid "{0} weeks ago"
+msgstr "{0} vor Wochen"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "{column, plural, one {# Column} other {# Columns}}"
 msgstr "{column, plural, one {# Spalte} other {# Spalten}}"
+
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+msgid "{diffDays} days ago"
+msgstr "{diffDays} vor Tagen"
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "{used} of {limit} requests used ({remaining} remaining)"
+msgstr "{used} der {limit} Anfragen verwendet ({remaining} verbleibend)"
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
@@ -202,7 +226,7 @@ msgstr "Spalte davor einfügen"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add multiple roles to show career progression at the same company."
-msgstr ""
+msgstr "Fügen Sie mehrere Positionen hinzu, um den Karriereverlauf im gleichen Unternehmen darzustellen."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Add Page"
@@ -210,7 +234,7 @@ msgstr "Seite hinzufügen"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Add Role"
-msgstr ""
+msgstr "Position hinzufügen"
 
 #: src/components/input/rich-input.tsx
 msgid "Add Row After"
@@ -220,9 +244,14 @@ msgstr "Zeile danach einfügen"
 msgid "Add Row Before"
 msgstr "Zeile davor einfügen"
 
-#: src/components/ai/chat.tsx
-msgid "Added"
-msgstr "Hinzugefügt"
+#. placeholder {0}: skillsToSync.length
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Added {0} new skills to your original resume"
+msgstr "{0} neue Fähigkeiten zu Ihrem ursprünglichen Lebenslauf hinzugefügt"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Advanced Filters"
+msgstr "Erweiterte Filter"
 
 #: src/utils/locale.ts
 msgid "Afrikaans"
@@ -233,9 +262,9 @@ msgstr "Afrikaans"
 msgid "AI"
 msgstr "KI"
 
-#: src/components/ai/chat.tsx
-msgid "AI Chat"
-msgstr "KI-Chat"
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "AI returned some invalid references"
+msgstr "AI hat einige ungültige Referenzen zurückgegeben"
 
 #: src/utils/locale.ts
 msgid "Albanian"
@@ -246,8 +275,8 @@ msgid "Allow Public Access"
 msgstr "Öffentlichen Zugriff erlauben"
 
 #: src/routes/auth/register.tsx
-msgid "Already have an account? <0><1>Sign in now <2/></1></0>"
-msgstr "Sie haben bereits ein Konto? <0><1>Jetzt anmelden <2/></1></0>"
+msgid "Already have an account? <0/>"
+msgstr "Sie haben bereits ein Konto? <0/>"
 
 #: src/utils/locale.ts
 msgid "Amharic"
@@ -262,9 +291,30 @@ msgstr "Beim Laden der Seite ist ein Fehler aufgetreten."
 msgid "An unknown error occurred while importing your resume."
 msgstr "Beim Importieren deines Lebenslaufs ist ein unbekannter Fehler aufgetreten."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Analyze Resume"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Analyzing..."
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "And many more..."
 msgstr "Und viele weitere ..."
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Any level"
+msgstr "Jedes Niveau"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Any time"
+msgstr "Jederzeit"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Any type"
+msgstr "Jeder Typ"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Anyone visiting the resume's public URL must enter this password to access it."
@@ -297,6 +347,10 @@ msgstr "API-Schlüssel"
 msgid "API Reference"
 msgstr "API-Referenz"
 
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "API Usage"
+msgstr "API-Verwendung"
+
 #: src/routes/dashboard/-components/sidebar.tsx
 msgid "App"
 msgstr "App"
@@ -304,6 +358,18 @@ msgstr "App"
 #: src/routes/_home/-sections/statistics.tsx
 msgid "Application Statistics"
 msgstr "Anwendungsstatistiken"
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Apply"
+msgstr "Anwenden"
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Apply Link"
+msgstr "Link anwenden"
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Apply Via"
+msgstr "Bewerben über"
 
 #: src/utils/locale.ts
 msgid "Arabic"
@@ -347,10 +413,6 @@ msgstr "Studienfach"
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Artificial Intelligence"
 msgstr "Künstliche Intelligenz"
-
-#: src/components/ai/chat.tsx
-msgid "Ask me to update your resume..."
-msgstr "Fragen Sie mich, Ihren Lebenslauf zu aktualisieren..."
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Aspect Ratio"
@@ -404,6 +466,10 @@ msgstr "Grundlagen"
 #: src/routes/_home/-sections/features.tsx
 msgid "Beautiful templates to choose from, with more on the way."
 msgstr "Schöne Vorlagen zur Auswahl – und es kommen laufend weitere hinzu."
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Benefits"
+msgstr "Vorteile"
 
 #: src/utils/locale.ts
 msgid "Bengali"
@@ -485,6 +551,7 @@ msgstr "Kann ich meinen Lebenslauf als PDF exportieren?"
 #: src/dialogs/resume/sections/volunteer.tsx
 #: src/hooks/use-prompt.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
 #: src/routes/dashboard/settings/danger-zone.tsx
 #: src/routes/dashboard/settings/profile.tsx
@@ -548,17 +615,18 @@ msgstr "Chinesisch (traditionell)"
 msgid "Circle"
 msgstr "Kreis"
 
-#: src/components/ai/chat.tsx
-msgid "Clear chat history"
-msgstr "Chatverlauf löschen"
-
-#: src/components/ui/multiple-combobox.tsx
-msgid "Clear selection"
-msgstr "Auswahl löschen"
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Clear all"
+msgstr "Alles löschen"
 
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Hier klicken, um eine Datei zum Importieren auszuwählen"
+
+#: src/components/ui/dialog.tsx
+#: src/components/ui/sheet.tsx
+msgid "Close"
+msgstr "Schließen"
 
 #: src/components/input/rich-input.tsx
 msgid "Code Block"
@@ -580,6 +648,10 @@ msgstr "Unternehmen"
 #: src/routes/_home/-sections/features.tsx
 msgid "Completely free, forever, no hidden costs."
 msgstr "Vollständig kostenlos, für immer, ohne versteckte Kosten."
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Configure Job Search"
+msgstr "Jobsuche konfigurieren"
 
 #: src/dialogs/api-key/create.tsx
 #: src/hooks/use-prompt.tsx
@@ -613,6 +685,10 @@ msgstr "Dort weitermachen, wo du aufgehört hast"
 msgid "Continue where you left off by importing an existing resume you created using Reactive Resume or any another resume builder. Supported formats include PDF, Microsoft Word, as well as JSON files from Reactive Resume."
 msgstr "Mach genau dort weiter, wo du aufgehört hast, indem du einen vorhandenen Lebenslauf importierst, den du mit Reactive Resume oder einem anderen Lebenslauf-Builder erstellt hast. Unterstützte Formate sind PDF, Microsoft Word sowie JSON-Dateien von Reactive Resume."
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Contractor"
+msgstr "Bauunternehmer"
+
 #: src/routes/_home/-sections/donate.tsx
 msgid "Contributions fund bug fixes, security updates, and continuous improvements to keep the app running smoothly."
 msgstr "Beiträge finanzieren Fehlerbehebungen, Sicherheitsupdates und kontinuierliche Verbesserungen, damit die App reibungslos läuft."
@@ -636,6 +712,14 @@ msgstr "Kopiere diesen geheimen Schlüssel und verwende ihn in deinen Anwendunge
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Copy URL"
 msgstr "URL kopieren"
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Could not fetch jobs"
+msgstr "Konnte keine Aufträge abrufen"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Country"
+msgstr "Land"
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
@@ -802,6 +886,10 @@ msgstr "Datensicherheit"
 msgid "Date"
 msgstr "Datum"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Date Posted"
+msgstr "Datum veröffentlicht"
+
 #: src/dialogs/resume/sections/education.tsx
 msgid "Degree"
 msgstr "Abschluss"
@@ -812,6 +900,7 @@ msgstr "Abschluss"
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
 msgid "Delete"
 msgstr "Löschen"
 
@@ -858,12 +947,25 @@ msgstr "Ihr Lebenslauf wird gelöscht..."
 #: src/dialogs/resume/sections/publication.tsx
 #: src/dialogs/resume/sections/reference.tsx
 #: src/dialogs/resume/sections/volunteer.tsx
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
 msgid "Description"
 msgstr "Beschreibung"
 
 #: src/utils/resume/section.tsx
 msgid "Design"
 msgstr "Design"
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Direct"
+msgstr "Direkt"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Direct Apply"
+msgstr "Direkt bewerben"
+
+#: src/routes/dashboard/job-search/-components/use-job-search.ts
+msgid "Direct apply only"
+msgstr "Nur direkt anwenden"
 
 #: src/dialogs/auth/disable-two-factor.tsx
 #: src/routes/dashboard/settings/authentication/-components/two-factor.tsx
@@ -896,8 +998,8 @@ msgid "Documentation"
 msgstr "Dokumentation"
 
 #: src/routes/auth/login.tsx
-msgid "Don't have an account? <0><1>Create one now <2/></1></0>"
-msgstr "Sie haben noch kein Konto? <0><1>Jetzt erstellen <2/></1></0>"
+msgid "Don't have an account? <0/>"
+msgstr "Sie haben noch kein Konto? <0/>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -909,12 +1011,20 @@ msgid "Download"
 msgstr "Herunterladen"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
+msgid "Download a copy of your resume as a Word document. Use this file to further customize your resume in Microsoft Word or Google Docs."
+msgstr "Laden Sie eine Kopie Ihres Lebenslaufs als Word-Dokument herunter. Verwenden Sie diese Datei, um Ihren Lebenslauf in Microsoft Word oder Google Docs weiter zu bearbeiten."
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Download a copy of your resume in JSON format. Use this file for backup or to import your resume into other applications, including AI assistants."
 msgstr "Laden Sie eine Kopie Ihres Lebenslaufs im JSON-Format herunter. Nutzen Sie diese Datei für Backups oder zum Importieren in andere Anwendungen, einschließlich KI-Assistenten."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Download a copy of your resume in PDF format. Use this file for printing or to easily share your resume with recruiters."
 msgstr "Laden Sie eine Kopie Ihres Lebenslaufs im PDF-Format herunter. Nutzen Sie diese Datei zum Drucken oder zum einfachen Teilen mit Personalvermittlern."
+
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgid "Download DOCX"
+msgstr "DOCX herunterladen"
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Download JSON"
@@ -961,9 +1071,17 @@ msgstr "Ihr Lebenslauf wird dupliziert..."
 msgid "Dutch"
 msgstr "Niederländisch"
 
-#: src/components/ai/chat.tsx
-msgid "e.g. Change my name to..."
-msgstr "z. B. meinen Namen ändern zu..."
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "e.g. 150000"
+msgstr "z.B. 150000"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "e.g. 50000"
+msgstr "z.B. 50000"
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "e.g. frontend developer jobs in Berlin"
+msgstr "z.B. Frontend Entwickler Jobs in Berlin"
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
@@ -1014,6 +1132,10 @@ msgstr "Die Zwei-Faktor-Authentifizierung wird aktiviert..."
 msgid "English"
 msgstr "Englisch"
 
+#: src/utils/locale.ts
+msgid "English (United Kingdom)"
+msgstr "Englisch (Vereinigtes Königreich)"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "Enhance the security of your account with additional layers of protection."
 msgstr "Verbessere die Sicherheit deines Kontos mit zusätzlichen Schutzebenen."
@@ -1042,6 +1164,10 @@ msgstr "Geben Sie Ihr Passwort ein, um die Einrichtung der Zwei-Faktor-Authentif
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "Geben Sie Ihr Passwort ein, um die Zwei-Faktor-Authentifizierung zu deaktivieren. Ihr Konto ist ohne 2FA weniger sicher."
 
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "Enter your RapidAPI key"
+msgstr "Geben Sie Ihren RapidAPI-Schlüssel ein"
+
 #: src/routes/_home/-sections/donate.tsx
 msgid "Every contribution, big or small, makes a huge difference to the project.<0/>Thank you for your support!"
 msgstr "Jeder Beitrag, ob groß oder klein, macht einen riesigen Unterschied für das Projekt.<0/>Vielen Dank für deine Unterstützung!"
@@ -1054,11 +1180,24 @@ msgstr "Alles, was du hier eingibst, wird lokal in deinem Browser gespeichert. D
 msgid "Everything you need to create, customize, and share professional resumes. Built with privacy in mind, powered by open source, and completely free forever."
 msgstr "Alles, was du brauchst, um professionelle Lebensläufe zu erstellen, anzupassen und zu teilen. Mit Blick auf Datenschutz entwickelt, von Open Source angetrieben und für immer komplett kostenlos."
 
+#: src/routes/dashboard/job-search/-components/use-job-search.ts
+msgid "Exclude {value}"
+msgstr "Schließen Sie {value} aus."
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Exclude Companies"
+msgstr "Unternehmen ausschließen"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Exclude Keywords"
+msgstr "Schlüsselwörter ausschließen"
+
 #: src/components/input/rich-input.tsx
 msgid "Exit Fullscreen"
 msgstr "Vollbild schließen"
 
 #: src/dialogs/resume/sections/custom.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
 #: src/utils/resume/section.tsx
 msgid "Experience"
 msgstr "Erfahrung"
@@ -1084,18 +1223,39 @@ msgstr "Sieh dir die API-Dokumentation an, um zu erfahren, wie du Reactive Resum
 msgid "Export"
 msgstr "Exportieren"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Failed to analyze resume."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to delete passkey. Please try again."
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Failed to duplicate resume"
+msgstr "Lebenslauf konnte nicht dupliziert werden"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Failed to register passkey. Please try again."
+msgstr ""
+
 #: src/dialogs/auth/enable-two-factor.tsx
 msgid "Failed to setup two-factor authentication."
 msgstr "Die Einrichtung der Zwei-Faktor-Authentifizierung ist fehlgeschlagen."
 
 #: src/routes/auth/login.tsx
 msgid "Failed to sign in. Please try again."
-msgstr ""
+msgstr "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut."
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Failed to sync skills"
+msgstr "Synchronisierung der Fähigkeiten fehlgeschlagen"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
 msgstr "Funktionen"
 
+#: src/routes/dashboard/resumes/index.tsx
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Filter by"
 msgstr "Filtern nach"
@@ -1171,6 +1331,10 @@ msgstr "Französisch"
 msgid "Full Width"
 msgstr "Volle Breite"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Full-time"
+msgstr "Ganztags"
+
 #: src/components/input/rich-input.tsx
 msgid "Fullscreen"
 msgstr "Vollbild"
@@ -1183,9 +1347,21 @@ msgstr "Zufälligen Namen generieren"
 msgid "German"
 msgstr "Deutsch"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Get a review of your resume with an overall score, strengths, and actionable suggestions."
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Get an in-depth AI-powered review of your resume with an overall score, key strengths, and practical suggestions. To activate this feature, please update your AI settings."
+msgstr ""
+
 #: src/routes/_home/-sections/hero.tsx
 msgid "Get Started"
 msgstr "Jetzt starten"
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "Get your API key from RapidAPI by subscribing to the JSearch API."
+msgstr "Holen Sie sich Ihren API-Schlüssel von RapidAPI, indem Sie sich bei der JSearch-API anmelden."
 
 #: src/components/layout/not-found-screen.tsx
 #: src/routes/auth/verify-2fa-backup.tsx
@@ -1195,6 +1371,10 @@ msgstr "Zurück"
 #: src/routes/_home/-sections/header.tsx
 msgid "Go to dashboard"
 msgstr "Weiter zum Dashboard"
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Go to Settings"
+msgstr "Gehen Sie zu Einstellungen"
 
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Go to..."
@@ -1247,7 +1427,7 @@ msgstr "Überschrift 6"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/basics.tsx
 msgid "Headline"
-msgstr "Überschrift"
+msgstr "Berufsbezeichnung"
 
 #: src/utils/locale.ts
 msgid "Hebrew"
@@ -1337,6 +1517,10 @@ msgstr "Dein Lebenslauf wird importiert ..."
 msgid "Importing..."
 msgstr "Importieren ..."
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Include Keywords"
+msgstr "Schlüsselwörter einbeziehen"
+
 #: src/utils/locale.ts
 msgid "Indonesian"
 msgstr "Indonesisch"
@@ -1357,6 +1541,10 @@ msgstr "Tabelle einfügen"
 #: src/utils/resume/section.tsx
 msgid "Interests"
 msgstr "Interessen"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Intern"
+msgstr "Praktikant"
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Is Reactive Resume available in multiple languages?"
@@ -1381,6 +1569,24 @@ msgstr "Kursiv"
 #: src/utils/locale.ts
 msgid "Japanese"
 msgstr "Japanisch"
+
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Job Search"
+msgstr "Jobsuche"
+
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "Job Search API"
+msgstr "Jobsuche API"
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "JSearch aggregates job listings from multiple job boards using Google for Jobs. You can filter by country (ISO alpha-2 code), date posted, job type, remote options, and experience level."
+msgstr "JSearch sammelt Stellenanzeigen von mehreren Stellenbörsen mit Hilfe von Google for Jobs. Sie können nach Land (ISO-Alpha-2-Code), Datum der Veröffentlichung, Art der Stelle, Remote-Optionen und Erfahrungsniveau filtern."
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "JSearch API Documentation"
+msgstr "JSearch API-Dokumentation"
 
 #: src/components/input/rich-input.tsx
 msgid "Justify Align"
@@ -1424,6 +1630,15 @@ msgstr "Sprache"
 msgid "Languages"
 msgstr "Sprachen"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Last 3 days"
+msgstr "Letzte 3 Tage"
+
+#. placeholder {0}: new Date(analysis.updatedAt).toLocaleString()
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Last analyzed on {0}"
+msgstr ""
+
 #. placeholder {0}: statistics.lastDownloadedAt.toDateString()
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Last downloaded on {0}"
@@ -1461,7 +1676,7 @@ msgstr "Verlassen"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
 msgid "Leave empty to reset the title to the original."
-msgstr "Leer lassen, um den Titel auf den Original zurückzusetzen."
+msgstr "Leer lassen, um den Titel auf das Original zurückzusetzen."
 
 #: src/components/input/rich-input.tsx
 msgid "Left Align"
@@ -1544,6 +1759,10 @@ msgstr "Langfristige Nachhaltigkeit"
 msgid "Lost access to your authenticator?"
 msgstr "Zugriff auf Ihren Authenticator verloren?"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "MacBook Touch ID"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Main"
 msgstr "Hauptbereich"
@@ -1572,9 +1791,21 @@ msgstr "Rand (horizontal)"
 msgid "Margin (Vertical)"
 msgstr "Rand (vertikal)"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Maximum Salary"
+msgstr "Maximales Gehalt"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Minimum Salary"
+msgstr "Mindestgehalt"
+
 #: src/routes/dashboard/settings/ai.tsx
 msgid "Model"
 msgstr "Modell"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "More than 3 years"
+msgstr "Mehr als 3 Jahre"
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 msgid "Move to"
@@ -1595,6 +1826,10 @@ msgstr "Mehrsprachig"
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Name"
 msgstr "Name"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Name your passkey"
+msgstr ""
 
 #: src/utils/locale.ts
 msgid "Nepali"
@@ -1625,14 +1860,41 @@ msgstr "Neues Passwort"
 msgid "New Section"
 msgstr "Neuer Abschnitt"
 
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "New Skills Detected"
+msgstr "Neue Fertigkeiten entdeckt"
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Next"
+msgstr "Nächste"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "No Advertising, No Tracking"
 msgstr "Keine Werbung, kein Tracking"
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "No degree required"
+msgstr "Kein Abschluss erforderlich"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "No experience"
+msgstr "Keine Erfahrung"
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "No jobs found. Try a different search query."
+msgstr "Keine Jobs gefunden. Versuchen Sie eine andere Suchanfrage."
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "No passkeys registered yet."
+msgstr ""
+
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "No results found."
 msgstr "Keine Ergebnisse gefunden."
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "No resumes found. Create a resume first."
+msgstr "Keine Lebensläufe gefunden. Erstellen Sie zuerst einen Lebenslauf."
 
 #: src/utils/locale.ts
 msgid "Norwegian"
@@ -1659,6 +1921,10 @@ msgstr "Laufende Wartung"
 msgid "Open"
 msgstr "Öffnen"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Open AI Settings"
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
 msgid "Open Email Client"
 msgstr "E-Mail-Programm öffnen"
@@ -1673,6 +1939,11 @@ msgstr "Open Source"
 #: src/routes/_home/-sections/footer.tsx
 msgid "opens in new tab"
 msgstr "öffnet in neuem Tab"
+
+#. placeholder {0}: job.job_title
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Optimizing summary, experience, and skills for {0}"
+msgstr "Optimierung von Zusammenfassung, Erfahrung und Fähigkeiten für {0}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Optionally, set a password so that only people with the password can view your resume through the link."
@@ -1691,12 +1962,8 @@ msgstr "Nummerierte Liste"
 msgid "Organization"
 msgstr "Organisation"
 
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Period"
-msgstr ""
-
-#: src/dialogs/resume/sections/experience.tsx
-msgid "Overall Title (optional)"
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Overall Score"
 msgstr ""
 
 #: src/utils/resume/section.tsx
@@ -1709,6 +1976,10 @@ msgstr "Seite"
 msgid "Page {0}"
 msgstr "Seite {0}"
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Page {currentPage}"
+msgstr "Seite {currentPage}"
+
 #: src/components/resume/preview.tsx
 msgid "Page {pageNumber} of {totalNumberOfPages}"
 msgstr "Seite {pageNumber} von {totalNumberOfPages}"
@@ -1716,6 +1987,22 @@ msgstr "Seite {pageNumber} von {totalNumberOfPages}"
 #: src/components/input/rich-input.tsx
 msgid "Paragraph"
 msgstr "Absatz"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Part-time"
+msgstr "Teilzeit"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey deleted successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkey registered successfully."
+msgstr ""
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Passkeys"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Passkeys & 2FA"
@@ -1822,6 +2109,10 @@ msgstr "Einstellungen"
 msgid "Press <0>{RETURN_KEY}</0> or <1>{COMMA_KEY}</1> to add or save the current keyword."
 msgstr "Drücken Sie <0>{RETURN_KEY}</0> oder <1>{COMMA_KEY}</1>, um das aktuelle Schlüsselwort hinzuzufügen oder zu speichern."
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Previous"
+msgstr "Vorherige"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
 msgstr "Primärfarbe"
@@ -1871,6 +2162,15 @@ msgstr "Veröffentlichungen"
 #: src/dialogs/resume/sections/publication.tsx
 msgid "Publisher"
 msgstr "Verlag"
+
+#. placeholder {0}: quota.remaining
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Quota: {0} remaining"
+msgstr "Quote: {0} verbleibend"
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "RapidAPI Key"
+msgstr "RapidAPI-Schlüssel"
 
 #: src/routes/_home/-sections/header.tsx
 msgid "Reactive Resume - Go to homepage"
@@ -1922,21 +2222,31 @@ msgstr "Referenzen"
 msgid "Refresh"
 msgstr "Aktualisieren"
 
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Register New Device"
+msgstr ""
+
 #: src/routes/auth/forgot-password.tsx
-msgid "Remember your password? <0><1>Sign in now <2/></1></0>"
-msgstr "Sie erinnern sich wieder an Ihr Passwort? <0><1>Jetzt anmelden <2/></1></0>"
+msgid "Remember your password? <0/>"
+msgstr "Passwort noch parat? <0/>"
+
+#: src/routes/dashboard/job-search/-components/job-card.tsx
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Remote"
+msgstr "Fernbedienung"
+
+#: src/routes/dashboard/job-search/-components/use-job-search.ts
+msgid "Remote only"
+msgstr "Nur Fernbedienung"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Remove"
-msgstr ""
+msgstr "Entfernen"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Remove Password"
 msgstr "Passwort entfernen"
-
-#: src/components/ai/chat.tsx
-msgid "Removed"
-msgstr "Entfernt"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Removing password protection..."
@@ -1948,7 +2258,7 @@ msgstr "Umbenennen"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Reorder"
-msgstr ""
+msgstr "Neu anordnen"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Report a Bug"
@@ -1957,6 +2267,10 @@ msgstr "Fehler melden"
 #: src/routes/_home/-sections/footer.tsx
 msgid "Report an issue"
 msgstr "Problem melden"
+
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+msgid "Required Skills"
+msgstr "Erforderliche Fertigkeiten"
 
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Resend verification email"
@@ -1967,6 +2281,7 @@ msgid "Resending verification email..."
 msgstr "Verifizierungs-E-Mail wird erneut gesendet..."
 
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -1986,6 +2301,20 @@ msgstr "Ihr Passwort wird zurückgesetzt..."
 msgid "Resources"
 msgstr "Ressourcen"
 
+#: src/utils/resume/section.tsx
+msgid "Resume Analysis"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Resume analysis complete."
+msgstr ""
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Resume tailored successfully"
+msgstr "Lebenslauf erfolgreich zugeschnitten"
+
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/navigation.tsx
 #: src/components/command-palette/pages/resumes.tsx
@@ -1997,13 +2326,17 @@ msgstr "Ressourcen"
 msgid "Resumes"
 msgstr "Lebensläufe"
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Retry"
+msgstr "Wiederholen Sie"
+
 #: src/components/input/rich-input.tsx
 msgid "Right Align"
 msgstr "Rechtsbündig"
 
 #: src/dialogs/resume/sections/experience.tsx
 msgid "Role Progression"
-msgstr ""
+msgstr "Karriereverlauf"
 
 #: src/utils/locale.ts
 msgid "Romanian"
@@ -2013,9 +2346,22 @@ msgstr "Rumänisch"
 msgid "Rotation"
 msgstr "Drehung"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
+msgstr ""
+
 #: src/utils/locale.ts
 msgid "Russian"
 msgstr "Russisch"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Save"
+msgstr ""
+
+#. placeholder {0}: selectedSkills.size
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Save {0} Skills"
+msgstr "Speichern {0} Fertigkeiten"
 
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/sections/award.tsx
@@ -2045,6 +2391,19 @@ msgstr "Scannen Sie den QR-Code unten mit Ihrer bevorzugten Authenticator-App. S
 msgid "School"
 msgstr "Schule"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Scorecard"
+msgstr ""
+
+#: src/routes/dashboard/job-search/index.tsx
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Search"
+msgstr "Suche"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Search countries"
+msgstr "Länder suchen"
+
 #: src/components/input/icon-picker.tsx
 #: src/components/input/icon-picker.tsx
 msgid "Search for an icon"
@@ -2055,7 +2414,6 @@ msgid "Search for..."
 msgstr "Suchen nach..."
 
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Search..."
 msgstr "Suchen..."
 
@@ -2067,8 +2425,18 @@ msgstr "Geheimnis wurde in die Zwischenablage kopiert."
 msgid "Section Type"
 msgstr "Abschnittstyp"
 
+#. placeholder {0}: job.job_title
+#. placeholder {1}: job.employer_name
+#. placeholder {2}: aiEnabled ? " and the AI will optimize it for this position." : "."
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Select a resume to tailor for \"{0}\" at {1}. A copy will be created{2}"
+msgstr "Wählen Sie unter {1}einen Lebenslauf aus, den Sie für \"{0}\" anpassen möchten. Es wird eine Kopie erstellt{2}"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Select country"
+msgstr "Land auswählen"
+
 #: src/components/ui/combobox.tsx
-#: src/components/ui/multiple-combobox.tsx
 msgid "Select..."
 msgstr "Auswählen..."
 
@@ -2169,6 +2537,7 @@ msgstr "Registrieren"
 
 #: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/-components/social-auth.tsx
+#: src/routes/auth/-components/social-auth.tsx
 #: src/routes/auth/login.tsx
 msgid "Signing in..."
 msgstr "Anmeldung läuft..."
@@ -2206,6 +2575,10 @@ msgstr "Größe"
 msgid "Skills"
 msgstr "Fähigkeiten"
 
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Skip"
+msgstr "Überspringen Sie"
+
 #: src/routes/_home/route.tsx
 msgid "Skip to main content"
 msgstr "Zum Hauptinhalt springen"
@@ -2213,6 +2586,10 @@ msgstr "Zum Hauptinhalt springen"
 #: src/utils/locale.ts
 msgid "Slovak"
 msgstr "Slowakisch"
+
+#: src/utils/locale.ts
+msgid "Slovenian"
+msgstr ""
 
 #: src/dialogs/resume/index.tsx
 msgid "Slug"
@@ -2224,6 +2601,7 @@ msgstr "Slug"
 msgid "Something went wrong. Please try again."
 msgstr "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
 
+#: src/routes/dashboard/resumes/index.tsx
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Sort by"
 msgstr "Sortieren nach"
@@ -2284,6 +2662,10 @@ msgstr "Statistiken"
 msgid "Stay"
 msgstr "Hier bleiben"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Strengths"
+msgstr ""
+
 #: src/components/input/rich-input.tsx
 msgid "Strike"
 msgstr "Durchgestrichen"
@@ -2291,6 +2673,10 @@ msgstr "Durchgestrichen"
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
 msgstr "Subreddit"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Suggestions"
+msgstr ""
 
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
@@ -2329,6 +2715,19 @@ msgstr "Stichwörter"
 msgid "Tags can be used to categorize your resume by keywords."
 msgstr "Stichwörter können genutzt werden, um Ihren Lebenslauf nach Schlüsselwörtern zu kategorisieren."
 
+#: src/routes/dashboard/job-search/-components/job-detail.tsx
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Tailor Resume"
+msgstr "Lebenslauf schneidern"
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Tailoring failed"
+msgstr "Schneidern fehlgeschlagen"
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "Tailoring your resume..."
+msgstr "Ihr Lebenslauf ist maßgeschneidert..."
+
 #: src/utils/locale.ts
 msgid "Tamil"
 msgstr "Tamil"
@@ -2350,6 +2749,7 @@ msgid "Templates"
 msgstr "Vorlagen"
 
 #: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/job-search.tsx
 msgid "Test Connection"
 msgstr "Verbindung testen"
 
@@ -2364,6 +2764,10 @@ msgstr "Textfarbe"
 #: src/utils/locale.ts
 msgid "Thai"
 msgstr "Thailändisch"
+
+#: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
+msgid "The AI identified new skills from your experience that match this job. Select which ones to save back to your original resume for future applications. This will permanently modify your original resume and cannot be undone."
+msgstr "Die KI hat neue Fähigkeiten aus Ihrer Erfahrung identifiziert, die zu dieser Stelle passen. Wählen Sie aus, welche davon Sie für zukünftige Bewerbungen in Ihrem ursprünglichen Lebenslauf speichern möchten. Dadurch wird Ihr ursprünglicher Lebenslauf dauerhaft geändert und kann nicht rückgängig gemacht werden."
 
 #: src/routes/dashboard/settings/api-keys.tsx
 msgid "The API key has been deleted successfully."
@@ -2405,12 +2809,13 @@ msgstr "Geben Sie dann den 6-stelligen Code ein, den die App bereitstellt, um fo
 
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
+msgid "There was a problem while generating the DOCX, please try again."
+msgstr "Bei der Erstellung der DOCX-Datei ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
+
+#: src/routes/builder/$resumeId/-components/dock.tsx
+#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "There was a problem while generating the PDF, please try again in some time."
 msgstr "Beim Erzeugen des PDFs ist ein Problem aufgetreten, bitte versuche es in einiger Zeit erneut."
-
-#: src/components/ai/chat.tsx
-msgid "Thinking..."
-msgstr "Denkt nach..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 #: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
@@ -2440,6 +2845,10 @@ msgstr "Dies kann einige Minuten dauern, abhängig von der Antwort des KI-Anbiet
 msgid "This may take a while depending on the server capacity. Please do not close the window or refresh the page."
 msgstr "Dies kann eine Weile dauern, abhängig von der Serverkapazität. Bitte schließe das Fenster nicht und lade die Seite nicht neu."
 
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "This month"
+msgstr "Diesen Monat"
+
 #: src/components/resume/store/resume.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Dieser Lebenslauf ist gesperrt und kann nicht aktualisiert werden."
@@ -2451,6 +2860,10 @@ msgstr "Dieser Abschnitt ist für Ihre persönlichen Notizen zu diesem Lebenslau
 #: src/routes/auth/register.tsx
 msgid "This step is optional, but recommended."
 msgstr "Dieser Schritt ist optional, aber empfohlen."
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "This week"
+msgstr "Diese Woche"
 
 #: src/dialogs/api-key/create.tsx
 msgid "This will generate a new API key to access the Reactive Resume API to allow machines to interact with your resume data."
@@ -2478,6 +2891,15 @@ msgstr "Titel"
 #: src/routes/dashboard/settings/danger-zone.tsx
 msgid "To delete your account, you need to enter the confirmation text and click the button below."
 msgstr "Um Ihr Konto zu löschen, müssen Sie den Bestätigungstext eingeben und unten auf die Schaltfläche klicken."
+
+#: src/routes/dashboard/job-search/index.tsx
+msgid "To search for job listings, you need to configure your RapidAPI key in settings."
+msgstr "Um nach Stellenangeboten zu suchen, müssen Sie Ihren RapidAPI-Schlüssel in den Einstellungen konfigurieren."
+
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Today"
+msgstr "Heute"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "Track your resume's views and downloads"
@@ -2547,6 +2969,7 @@ msgstr "Die Zwei-Faktor-Authentifizierung wurde erfolgreich eingerichtet."
 
 #: src/dialogs/resume/import.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Type"
 msgstr "Typ"
 
@@ -2565,6 +2988,10 @@ msgstr "Typografie"
 #: src/utils/locale.ts
 msgid "Ukrainian"
 msgstr "Ukrainisch"
+
+#: src/routes/dashboard/job-search/-components/search-filters.tsx
+msgid "Under 3 years"
+msgstr "Unter 3 Jahren"
 
 #: src/components/input/rich-input.tsx
 msgid "Underline"
@@ -2589,6 +3016,10 @@ msgstr "Die Verknüpfung Ihres {providerName}-Kontos wird aufgehoben..."
 #: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
 msgid "Unlock"
 msgstr "Entsperren"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "Unnamed passkey"
+msgstr ""
 
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Unverified"
@@ -2674,10 +3105,6 @@ msgstr "Lebenslauf aktualisieren"
 #: src/dialogs/auth/change-password.tsx
 msgid "Update your password"
 msgstr "Aktualisieren Sie Ihr Passwort"
-
-#: src/components/ai/chat.tsx
-msgid "Updated"
-msgstr "Aktualisiert"
 
 #: src/dialogs/auth/change-password.tsx
 msgid "Updating your password..."
@@ -2773,6 +3200,10 @@ msgstr "Webseite"
 msgid "What do you want to rename this section to?"
 msgstr "Wie möchten Sie diesen Abschnitt umbenennen?"
 
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "What is JSearch API?"
+msgstr "Was ist JSearch API?"
+
 #: src/routes/_home/-sections/faq.tsx
 msgid "What makes Reactive Resume different from other resume builders?"
 msgstr "Wodurch unterscheidet sich Reactive Resume von anderen Lebenslauf-Buildern?"
@@ -2803,6 +3234,10 @@ msgstr "Ja! Jede Vorlage ist vollständig anpassbar. Du kannst Farben, Schriften
 msgid "Yes! Reactive Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
 msgstr "Ja! Reactive Resume ist völlig kostenlos nutzbar, ohne versteckte Kosten, Premium-Stufen oder Abonnementgebühren. Es ist Open Source und wird immer kostenlos bleiben."
 
+#: src/routes/dashboard/job-search/-components/job-utils.ts
+msgid "Yesterday"
+msgstr "Gestern"
+
 #: src/routes/_home/-sections/features.tsx
 msgid "You also have the option to deploy on your own servers using the Docker image."
 msgstr "Du kannst Reactive Resume auch mit dem Docker-Image auf deinen eigenen Servern bereitstellen."
@@ -2814,6 +3249,10 @@ msgstr "Sie können sich auch mit Ihrem Benutzernamen anmelden."
 #: src/routes/_home/-sections/faq.tsx
 msgid "You can share your resume via a unique public URL, protect it with a password, or download it as a PDF to share directly. The choice is yours!"
 msgstr "Du kannst deinen Lebenslauf über eine eindeutige öffentliche URL teilen, ihn mit einem Passwort schützen oder ihn als PDF herunterladen, um ihn direkt zu versenden. Die Wahl liegt bei dir!"
+
+#: src/routes/dashboard/settings/authentication/-components/passkeys.tsx
+msgid "You can skip this and keep the default name."
+msgstr ""
 
 #: src/hooks/use-form-blocker.tsx
 msgid "You have unsaved changes that will be lost."
@@ -2848,6 +3287,10 @@ msgstr "Deine Daten werden lokal gespeichert"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Deine Daten werden sicher gespeichert und niemals an Dritte weitergegeben. Du kannst Reactive Resume außerdem auf deinen eigenen Servern selbst hosten, um die vollständige Kontrolle über deine Daten zu behalten."
 
+#: src/components/resume/store/resume.ts
+msgid "Your latest changes could not be saved. Please make sure you are connected to the internet and try again."
+msgstr "Ihre letzten Änderungen konnten nicht gespeichert werden. Bitte stellen Sie sicher, dass Sie mit dem Internet verbunden sind und versuchen Sie es erneut."
+
 #: src/routes/auth/reset-password.tsx
 msgid "Your password has been reset successfully. You can now sign in with your new password."
 msgstr "Ihr Passwort wurde erfolgreich zurückgesetzt. Sie können sich nun mit Ihrem neuen Passwort anmelden."
@@ -2859,6 +3302,10 @@ msgstr "Ihr Passwort wurde erfolgreich aktualisiert."
 #: src/routes/dashboard/settings/profile.tsx
 msgid "Your profile has been updated successfully."
 msgstr "Ihr Profil wurde erfolgreich aktualisiert."
+
+#: src/routes/dashboard/settings/job-search.tsx
+msgid "Your RapidAPI key is stored locally on your browser. It is only sent to the server when making a request to search for jobs, and is never stored or logged on our servers."
+msgstr "Ihr RapidAPI-Schlüssel wird lokal in Ihrem Browser gespeichert. Er wird nur an den Server gesendet, wenn Sie eine Anfrage zur Stellensuche stellen, und wird niemals auf unseren Servern gespeichert oder protokolliert."
 
 #: src/dialogs/resume/index.tsx
 #: src/dialogs/resume/index.tsx
@@ -2902,4 +3349,3 @@ msgstr "Herauszoomen"
 #: src/utils/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
-
