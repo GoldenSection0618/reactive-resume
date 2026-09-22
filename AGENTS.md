@@ -87,7 +87,7 @@ Multi-place changes:
 
 - **Resume data shape**: `packages/schema/src/resume/*` first, then API DTOs, importers, PDF rendering, and web forms consuming it.
 - **New template**: `packages/schema/src/templates.ts`, `packages/pdf/src/templates/index.ts`, source under `packages/pdf/src/templates/<name>/`, and previews under `apps/web/public/templates/{jpg,pdf}`.
-- **New DB column/table**: `packages/db/src/schema/*`, then `dotenvx run -f .env.local -- pnpm db:generate`.
+- **New DB column/table**: `packages/db/src/schema/*`, then `pnpm exec dotenvx run -f .env.local -- pnpm db:generate`.
 - **New env var**: `packages/env/src/server.ts` **and** the `globalEnv` array in `turbo.json`. Turborepo 2.x strict env mode filters out unlisted vars, so the variable will be `undefined` in child processes at runtime even when correctly set in the OS/container environment.
 
 ## Environment and database
@@ -101,13 +101,13 @@ Copy `.env.example` to `.env.local`. Three required vars: `APP_URL` (default `ht
 
 ## Commands
 
-Prefix dev servers and migration commands with `dotenvx run -f .env.local --`. Tests, typechecks, linters, boundary checks, and `pnpm build` do not need it; if one fails on a missing env var, rerun it with the prefix.
+Prefix dev servers and migration commands with `pnpm exec dotenvx run -f .env.local --`. Tests, typechecks, linters, boundary checks, and `pnpm build` do not need it; if one fails on a missing env var, rerun it with the prefix.
 
 ```
 sudo docker compose -f compose.dev.yml up -d postgres                                    # DB only
 sudo docker compose -f compose.dev.yml up -d postgres redis seaweedfs seaweedfs_create_bucket   # full infra
-dotenvx run -f .env.local -- pnpm dev            # port 3000 (dev:web for web only)
-dotenvx run -f .env.local -- pnpm db:generate    # db:migrate to apply
+pnpm exec dotenvx run -f .env.local -- pnpm dev            # port 3000 (dev:web for web only)
+pnpm exec dotenvx run -f .env.local -- pnpm db:generate    # db:migrate to apply
 pnpm check                                       # Biome — WRITE-CAPABLE (--write --unsafe)
 pnpm test | pnpm typecheck | pnpm build | pnpm exec turbo boundaries
 ```
